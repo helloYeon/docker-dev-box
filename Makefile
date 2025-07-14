@@ -19,7 +19,7 @@ down-rocky: ## RockyLinuxコンテナを停止して削除
 	@docker rm $(CONTAINER_NAME_ROCKY)
 
 build-rocky: ## RockyLinuxメージをビルド
-	@docker build -f $(DOCKERFILE_ROCKY) -t $(CONTAINER_NAME_ROCKY) .
+	@docker build $(ARGS) -f $(DOCKERFILE_ROCKY) -t $(IMAGE_NAME_ROCKY) .
 
 push-rocky: ## RockyLinuxイメージをpush
 	@docker tag $(IMAGE_NAME_ROCKY) $(REMOTE_TAG_ROCKY)
@@ -44,7 +44,7 @@ down-ubuntu: ## Ubuntuコンテナを停止して削除
 	@docker rm $(CONTAINER_NAME_UBUNTU)
 
 build-ubuntu: ## Ubuntuイメージをビルド
-	@docker build -f $(DOCKERFILE_UBUNTU) -t $(IMAGE_NAME_UBUNTU) .
+	@docker build $(ARGS) -f $(DOCKERFILE_UBUNTU) -t $(IMAGE_NAME_UBUNTU) .
 
 push-ubuntu: ## Ubuntuイメージをpush
 	@docker tag $(IMAGE_NAME_UBUNTU) $(REMOTE_TAG_UBUNTU)

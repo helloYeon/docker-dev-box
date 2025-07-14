@@ -22,7 +22,11 @@ RUN echo 'alias p3="python3"' >> ~/.bashrc
 ##############################
 # Install Common CLI tools
 ##############################
-RUN dnf install -y iputils && dnf clean all
+RUN dnf install -y \
+        iputils  \
+        which  \
+        iproute && \
+    dnf clean all
 
 
 ##############################
