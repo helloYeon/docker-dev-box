@@ -12,18 +12,18 @@ CONTAINER_NAME_ROCKY := devbox-rocky
 
 up-rocky: ## RockyLinuxコンテナを起動
 	make build-rocky
-	@docker run --rm -it --name $(CONTAINER_NAME) $(IMAGE_NAME)
+	@docker run --rm -it --name $(CONTAINER_NAME_ROCKY) $(IMAGE_NAME_ROCKY)
 
 down-rocky: ## RockyLinuxコンテナを停止して削除
-	@docker stop $(CONTAINER_NAME)
-	@docker rm $(CONTAINER_NAME)
+	@docker stop $(CONTAINER_NAME_ROCKY)
+	@docker rm $(CONTAINER_NAME_ROCKY)
 
 build-rocky: ## RockyLinuxメージをビルド
-	@docker build -f $(DOCKERFILE) -t $(CONTAINER_NAME) .
+	@docker build -f $(DOCKERFILE_ROCKY) -t $(CONTAINER_NAME_ROCKY) .
 
 push-rocky: ## RockyLinuxイメージをpush
-	@docker tag $(IMAGE_NAME) $(REMOTE_TAG)
-	@docker push $(REMOTE_TAG)
+	@docker tag $(IMAGE_NAME_ROCKY) $(REMOTE_TAG_ROCKY)
+	@docker push $(REMOTE_TAG_ROCKY)
 
 ##################################################
 #                 Ubuntu用ターゲット              #
@@ -32,8 +32,8 @@ push-rocky: ## RockyLinuxイメージをpush
 
 IMAGE_NAME_UBUNTU := ubuntu-dev-box
 DOCKERFILE_UBUNTU := ubuntu/Dockerfile
-CONTAINER_NAME_UBUNTU := devbox-ubuntu
 REMOTE_TAG_UBUNTU := gnom878/ubuntu-dev-box:latest
+CONTAINER_NAME_UBUNTU := devbox-ubuntu
 
 up-ubuntu: ## Ubuntuコンテナを起動
 	build-ubuntu
