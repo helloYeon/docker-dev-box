@@ -25,6 +25,7 @@ RUN echo 'alias p3="python3"' >> ~/.bashrc
 RUN dnf install -y \
         iputils  \
         which  \
+        nmap  \
         iproute && \
     dnf clean all
 

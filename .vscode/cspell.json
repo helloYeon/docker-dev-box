@@ -4,5 +4,13 @@
   "words": [],
   "flagWords": [],
   "userWords": ["certonly", "noout"],
-  "ignoreWords": ["fastapi", "venv", "iputils", "devbox", "gnom", "plocate"]
+  "ignoreWords": [
+    "fastapi",
+    "venv",
+    "iputils",
+    "devbox",
+    "gnom",
+    "plocate",
+    "nmap"
+  ]
 }
