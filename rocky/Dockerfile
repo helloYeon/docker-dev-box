@@ -5,6 +5,8 @@ FROM rockylinux:9.3.20231119
 ##############################
 WORKDIR /app
 
+ENV TZ=Asia/Tokyo
+
 LABEL maintainer="gnom878@gmail.com" \
       version="1.0" \
       description="Rocky Linux dev container with common tools"
@@ -26,6 +28,7 @@ RUN dnf install -y \
         iputils  \
         which  \
         nmap  \
+        bind-utils \
         iproute && \
     dnf clean all
 
